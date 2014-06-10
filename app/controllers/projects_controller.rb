@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.filter(params[:q])
+    @projects = Project.filter(params[:q]).paginate(:page => params[:page])
   end
 
   # GET /projects/1
