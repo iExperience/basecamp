@@ -1,8 +1,14 @@
-<h1>Listing projects</h1>
+<div id="projects_title">
+  <%=image_tag 'favicon.png'%>
+  <h2>Projects</h2>
+  <%= link_to 'New Project', new_project_path, :class => 'action_button' %>
+  <div style="clear:both"></div>
+</div>
+
+<br/>
 
 <%= form_tag "/projects", method: 'GET', id: 'projects_search' do %>
   <%= text_field_tag 'q', params[:q] %>
-  <%= submit_tag 'SEARCH' %>
 <% end %>
 
 
@@ -17,4 +23,4 @@
 
 <br/>
 
-<%= link_to 'New Project', new_project_path %>
+
