@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140610171219) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "items", force: true do |t|
     t.string   "title"
     t.integer  "project_id"
@@ -24,6 +27,23 @@ ActiveRecord::Schema.define(version: 20140610171219) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+  end
+
+  create_table "tweets", force: true do |t|
+    t.string   "body"
+    t.string   "handle"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "handle"
+    t.string   "profile_pic"
+    t.text     "bio"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

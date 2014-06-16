@@ -4,6 +4,6 @@ class Project < ActiveRecord::Base
 	self.per_page = 5
 
 	def self.filter(query)
-		query ? Project.where("name LIKE ?", "%#{query}%") : Project.all
+		query ? Project.where("LOWER(name) LIKE ?", "%#{query.downcase}%") : Project.all
 	end
 end
